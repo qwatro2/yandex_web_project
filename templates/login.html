@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Авторизация
+{% endblock title %}
+
+{% block content %}
+<form action="" method="post" novalidate class="mx-3 mt-3">
+    {{ form.hidden_tag() }}
+    <p class="my-0 py-0">
+        {{ form.username.label }}<br>
+        {{ form.username(class="form-control") }}<br>
+        {% for error in form.username.errors %}
+    <div class="alert alert-danger my-0" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p class="my-0 py-0">
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+        {% for error in form.password.errors %}
+    <div class="alert alert-danger my-0" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
+{% endblock %}

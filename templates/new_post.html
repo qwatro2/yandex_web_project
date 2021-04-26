@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Новый пост
+{% endblock title %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data" class="mx-3 mt-3">
+    {{ form.hidden_tag() }}
+    <p class="my-0 py-0">
+        {{ form.description.label }}<br>
+        {{ form.description(class="form-control") }}<br>
+        {% for error in form.description.errors %}
+            <p class="alert alert-danger my-0" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p class="my-0 py-0">
+        {{ form.media.label }}<br>
+        {{ form.media(class="form-control") }}<br>
+        {% for error in form.media.errors %}
+            <p content="alert alert-danger my-0" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

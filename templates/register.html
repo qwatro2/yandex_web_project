@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Регистрация
+{% endblock title %}
+
+{% block content %}
+<form action="" method="post" class="mx-3 mt-3">
+    {{ form.hidden_tag() }}
+    <p class="my-0 py-0">
+        {{ form.nickname.label }}<br>
+        {{ form.nickname(class="form-control") }}<br>
+        {% for error in form.nickname.errors %}
+            <p class="alert alert-danger my-0" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p class="my-0 py-0">
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+        {% for error in form.password.errors %}
+            <p class="alert alert-danger my-0" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p class="my-0 py-0">
+        {{ form.password_again.label }}<br>
+        {{ form.password_again(class="form-control", type="password") }}<br>
+        {% for error in form.password_again.errors %}
+            <p class="alert alert-danger my-0" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}
